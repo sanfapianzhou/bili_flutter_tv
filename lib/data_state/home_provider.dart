@@ -3,31 +3,30 @@ import 'package:flutter/cupertino.dart';
 
 Dio dio = Dio();
 
-class UserInfo {
-  String? username;
-  String? password;
-  int? age;
+class HomeData {
+  List? recommendVideos;
 
-  UserInfo();
+  HomeData();
 }
 
 class HomeNotifier extends ChangeNotifier {
-  UserInfo? _userInfo = UserInfo();
+  HomeData? _homeData = HomeData();
 
-  UserInfo? get user => _userInfo;
+  HomeData? get home => _homeData;
 
-  set user(UserInfo? newValue) {
-    _userInfo = newValue;
+  set home(HomeData? newValue) {
+    _homeData = newValue;
     notifyListeners();
   }
 
   /**
    * 获取首页推荐视频
    */
-  Future<Response> getRegion() async {
+  void getRegion() async {
     Response response;
     response = await dio.get(
         "https://api.bilibili.com/x/web-interface/dynamic/region?ps=10&rid=1");
-    return response;
+    Map resData = response.data as Map;
+    _homeData?.recommendVideos = resData["data"]["archives"] as List?;
   }
 }

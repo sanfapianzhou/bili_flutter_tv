@@ -1,7 +1,6 @@
 import 'package:bilitv/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'module/video_cell.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -110,15 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            const VideoCell(
-              videoInfo: {
-                "pic":
-                    "http://i0.hdslb.com/bfs/archive/3f6ebd5ac465574a9b7e1bc3710d0fca2e075bc4.jpg",
-                "viewed": "30",
-                "danmu": "30",
-                "duration": 30
-              },
-            )
           ],
         ),
       ),
