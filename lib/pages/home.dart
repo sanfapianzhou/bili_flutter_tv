@@ -14,10 +14,12 @@ class Home extends StatelessWidget {
       homeValue.getRegion();
       if ((homeValue.home?.recommendVideos != null) &&
           (homeValue.home?.recommendVideos?.length)! > 0) {
-        return Column(
-          children: (homeValue.home?.recommendVideos)!
-              .map((entity) => VideoCell(entity))
-              .toList(),
+        return SingleChildScrollView(
+          child: Column(
+            children: (homeValue.home?.recommendVideos)!
+                .map((entity) => VideoCell(entity))
+                .toList(),
+          ),
         );
       } else {
         return const SizedBox();
