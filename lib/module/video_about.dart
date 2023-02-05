@@ -37,3 +37,19 @@ class PicCellInline extends StatelessWidget {
         style: const TextStyle(color: Colors.black, fontSize: 20), maxLines: 2);
   }
 }
+
+//两层以上相连 中间加层size box
+class MoreInRow extends StatelessWidget {
+  final List<Widget> outChildren;
+
+  const MoreInRow(this.outChildren, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    int size = outChildren.length;
+    outChildren.insert(1, const SizedBox(width: 5));
+    return Row(
+      children: outChildren,
+    );
+  }
+}
