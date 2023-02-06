@@ -2,7 +2,7 @@
 orderOfMagnitudeChange(int number) {
   List omlist = ["", "万", "亿"];
   String? orderm = number.toString();
-  int omInt = orderm.length ~/ 4;
+  int omInt = orderm.length ~/ 5;
   return omInt > 0
       ? (number / (omInt * 10000)).toStringAsFixed(1).toString() + omlist[omInt]
       : number.toString();

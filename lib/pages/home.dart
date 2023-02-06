@@ -15,7 +15,11 @@ class Home extends StatelessWidget {
       if ((homeValue.home?.recommendVideos != null) &&
           (homeValue.home?.recommendVideos?.length)! > 0) {
         return SingleChildScrollView(
-          child: Column(
+          child: Wrap(
+            //流式布局
+            direction: Axis.horizontal,
+            textDirection: TextDirection.ltr,
+            spacing: 10,
             children: (homeValue.home?.recommendVideos)!
                 .map((entity) => VideoCell(entity))
                 .toList(),

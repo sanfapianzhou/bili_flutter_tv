@@ -16,7 +16,7 @@ class VideoCell extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.only(bottom: 10),
-        width: 400,
+        width: 350,
         height: 260,
         color: Colors.white,
         child: Column(
